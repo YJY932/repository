@@ -1,0 +1,50 @@
+
+{% load django_bootstrap5 %}
+{% load static %}
+
+{% block content %}
+
+{#<table class="table table-striped">#}
+{#    <tr class="table-primary">#}
+{#        <td>제목</td>#}
+{#        <td>내용</td>#}
+{#        <td>작성자</td>#}
+{#    </tr>#}
+{#    {% for data in info %}#}
+{#        <tr>#}
+{#            <td>{{ data.title }}</td>#}
+{#            <td>{{ data.content }}</td>#}
+{#            <td>{{ data.user }}</td>#}
+{#        </tr>#}
+{#    {% endfor %}#}
+{#</table>#}
+<div>
+    <ul class="pagination justify-content-center">
+        {% if start_page %}
+            <li class="page-item">
+            <a class="page-link" href="{% url 'board' %}?page={{ page_range.0 | add:"-10" }}"> << </a>
+            </li>
+        {% endif %}
+        {% if info.has_previous %}
+            <li class="page-item">
+            <a class="page-link" href="{% url 'board' %}?page={{ info.previous_page_number }}"> ??< </a>
+            </li>
+        {% endif %}
+    {% for i in page_range %}
+        <li class="page-item">
+        <a class="page-link" href="{% url 'board' %}?page={{ i }}"> {{ i }} </a>
+        </li>
+    {% endfor %}
+    {% if info.has_next %}
+        <li class="page-item">
+        <a class="page-link" href="{% url 'board' %}?page={{ info.next_page_number }}"> > </a>
+        </li>
+    {% endif %}
+    {% if end_page %}
+        <li class="page-item">
+        <a class="page-link" href="{% url 'board' %}?page={{ page_range.0 | add:"10" }}"> >> </a>
+    {% endif %}
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+<div class="wrapper" style="text-align: center;">
+	<h1>회원가입</h1>
+	<form method="POST">
+		{% csrf_token %}
+		아이디: <br>
+		<input type="text" name="username">
+		<br>
+		비밀번호: <br>
+		<input type="password" name="password1">
+		<br>
+		비밀번호 확인: <br>
+		<input type="password" name="password2">
+		<br>
+		이메일: <br>
+		<input type="email" name="email">
+		<br><br>
+		<input type="submit" class="btn btn-primary" value="Sing Up">
+	</form>
+</div>
+{% endblock %}

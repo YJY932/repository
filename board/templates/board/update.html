@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<div class="container">
+	<form method="POST">
+		{% csrf_token %}
+		{% bootstrap_form edit %} {# board/views.py 93줄 context 앞쪽(템플릿에서 쓰이는 변수명) #}
+		<input type="submit" class="btn btn-dark rounded-pill col-12" value="수정하기" onclick="location.href='board/edit/{{board.pk}}/'">
+	</form>
+</div>
+
+{% endblock %}

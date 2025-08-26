@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+<div class="container">
+<form method="POST" action="{% url 'board:post' %}" enctype="multipart/form-data">
+{#  enctype 속성 있어야 파일 업로드 가능  #}
+    {% csrf_token %}
+    {% bootstrap_form fileuploadForm %}
+    <input type="file" name="image" multiple>
+    <input type="submit" class="btn btn-primary col-12" value="Upload">
+</form>
+</div>
+{% endblock %}
