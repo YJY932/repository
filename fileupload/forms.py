@@ -6,4 +6,4 @@ from fileupload.models import FileUpload
 class FileUploadForm(ModelForm):
     class Meta:
         model = FileUpload
-        fields=['title','imgfile','content']
+        fields=['imgfile'] # 이미지 필드만 처리

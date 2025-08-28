@@ -4,10 +4,10 @@
 {% block content %}
 <div class="container">
 <form method="POST" action="{% url 'fileupload' %}" enctype="multipart/form-data">
-{#  enctype 속성 있어야 파일 업로드 가능  #}
+<!--{#  enctype 속성 있어야 파일 업로드 가능  #}-->
     {% csrf_token %}
     {% bootstrap_form fileuploadForm %}
-    <input type="submit" class="btn btn-primary col-12" value="Upload">
+    <input type="submit" class="btn btn-primary col-12" value="업로드">
 </form>
 </div>
 {% endblock %}

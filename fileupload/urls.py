@@ -1,6 +1,8 @@
 from django.urls import path
+
+from board.views import boardDetail
 from .views import *
 
 urlpatterns=[
-    path('', fileupload,name='fileupload'),
+    path('<int:pk>/', boardDetail,name='image'),
 ]

@@ -1,17 +1,13 @@
 from django.contrib import admin
 
-from .models import Board, Comments, Image
+from .models import Board, Comments
 
 
 # Register your models here.
-class ImageInline(admin.TabularInline):
-    model = Image
-
 # @admin.register(Board)
 class BoardAdmin(admin.ModelAdmin):
     list_display = ('id','title','user','date')
     search_fields = ('title','content','user__username')
-    inlines = [ImageInline,]
 
 @admin.register(Comments)
 class CommentsAdmin(admin.ModelAdmin):

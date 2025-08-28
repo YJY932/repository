@@ -8,9 +8,12 @@
         <p><strong>작성자:</strong> {{ board_list.user }}</p>
         <p><strong>작성일:</strong> {{ board_list.date|date:"Y-m-d H:i" }}</p>
         <br>
+    <p>이미지 개수: {{ images|length }}</p>
         <p>
-            {% for image in board.image.all %}
-                <img src="{{ img.image.url }}" alt="게시글 이미지" style="max-width: 100%;height:auto;">
+            {% for image in images %}
+{#                images : 뷰에서 넘겨준 이미지 리스트(detail.uploaded_images.all()#}
+                <img src="{{ image.imgfile.url }}" alt="게시글 이미지" style="max-width: 100%;height:auto;">
+                <p>{{ image.imgfile.url }}</p>
             {% endfor %}
         </p>
         <p>{{ board_list.content }}</p>

@@ -5,14 +5,13 @@ from .forms import FileUploadForm
 from .models import FileUpload
 
 # Create your views here.
-def fileupload(request):
+def fileupload(request,pk):
     if request.method=='POST':
-        title=request.POST['title']
-        content=request.POST['content']
+        # title=request.POST['title']
+        # content=request.POST['content']
         img=request.FILES['imgfile']
-        fileupload=FileUpload(title=title,
+        fileupload=FileUpload(
                               imgfile=img,
-                              content=content,
                               )
         fileupload.save()
         return redirect('fileupload')
